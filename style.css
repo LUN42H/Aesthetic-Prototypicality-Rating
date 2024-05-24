@@ -1,0 +1,424 @@
+/* Yi-Chia Chen */
+* {
+    box-sizing: border-box;
+}
+body{
+    color: #ddd;
+    background: #444;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', Sans-serif;
+    font-size: 22px;
+    line-height: 30px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+div.pageBox{
+    display: none;
+    position: relative;
+    margin: 50px auto auto auto;
+    width: 830px;
+}
+#captchaBox {
+    position: fixed;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+}
+#captchaBox::-webkit-scrollbar { /* WebKit */
+  width: 0px;
+}
+.captchaText {
+    position: relative;
+    text-align: center;
+}
+.h-captcha {
+    position: relative;
+    text-align: center;
+}
+#instrBox {
+    position: fixed;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+}
+#instrBox::-webkit-scrollbar { /* WebKit */
+  width: 0px;
+}
+.consentInstr {
+    color: #bbb;
+    font-size: 20px;
+    line-height: 60px;
+}
+#consentBox {
+    margin: 40px 0;
+    width: 100%;
+}
+#consentTextBox {
+    margin: 0 auto;
+    padding: 20px;
+    width: 95%;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 16px;
+    line-height: 25px;
+    background: #354545;
+    border-style: dotted;
+    border-color: #ddd;
+}
+#instrImg {
+    display: none;
+    position: relative;
+    margin: 0 auto;
+    padding: 30px;
+}
+.warning {
+    color: #ffc8c8;
+}
+#debriefingBox{
+	margin: 20px auto 50px auto;
+}
+.button, .dimButton {
+    position: relative;
+    margin: 25px auto auto auto;
+    width: 250px;
+    height: 35px;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 8px;
+    background: #252525;
+    color: #dddddd;
+    cursor: pointer;
+}
+.button:hover {
+    background: #333;
+}
+.button:active {
+    background: #111;
+}
+.dimButton {
+    background: #151515;
+    color: #333333;
+    cursor: not-allowed;
+}
+#playButton {
+    display: none;
+}
+
+/* button for rating */
+.ratingContainer {
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    
+}
+.ratingButton{
+	position: absolute;
+	width: 110px;
+    height: 54px;
+	color: black;
+	border: 2px solid white;
+	text-align: center;
+    font-size: 15px;
+	line-height: 20px;
+	cursor: pointer;
+}
+#trialButton1{
+    width: 120px;
+    height: 45px;
+    font-size: 23px;
+    line-height: 1.7;
+    position: absolute;
+	left: -50px;
+    /* 20 150 280 410 540 670 */
+}
+#trialButton2{
+    width: 120px;
+    height: 45px;
+    font-size: 23px;
+    line-height: 1.7;
+    position: absolute;
+	left: 110px;
+}
+#trialButton3{
+    width: 120px;
+    height: 45px;
+    font-size: 23px;
+    line-height: 1.7;
+    position: absolute;
+	left: 270px;
+}
+#trialButton4{
+    width: 120px;
+    height: 45px;
+    font-size: 23px;
+    line-height: 1.7;
+    position: absolute;
+	left: 430px;
+}
+#trialButton5{
+    width: 120px;
+    height: 45px;
+    font-size: 23px;
+    line-height: 1.7;
+    position: absolute;
+	left: 590px;
+}
+#trialButton6{
+    width: 120px;
+    height: 45px;
+    font-size: 23px;
+    line-height: 1.7;
+    position: absolute;
+	left: 750px;
+}
+.ratingLabels {
+    margin: 0;
+    padding: 5px 0;
+}
+#titleText {
+    font-size: 25px;
+}
+
+/* button for canvas functions */
+.btn {
+    border: none;
+    background-color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display:inline-block;
+    color: dodgerblue;
+    width: 150px;
+}
+.active,.btn:hover {
+    background: #2196F3;
+    color: white;
+}
+
+/* practice trial */
+.option {
+    position: relative;
+    margin: 10px 0;
+    padding: 7px;
+    width: 100%;
+    border-radius: 8px;
+    background: rgb(194, 194, 194);
+    cursor: pointer;
+    text-align: left;
+}
+.option:hover {
+    background: rgb(218, 218, 218);
+}
+.radio {
+    position: absolute;
+    margin: 0;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    text-align: left;
+    align-items: left;
+}
+.option-text {
+    text-align: left;
+    position: relative;
+    top: 0px;
+    left: 30px;
+    width: calc(100% - 28px);
+}
+
+#q1 {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+/* Trial */
+.progressBar {
+    position: relative;
+    margin: 10px 0;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+}
+
+textarea {
+    display: block;
+    position: relative;
+    margin: 0px auto 0 auto;
+    font-size: 20px;
+    background: white;
+    overflow-y: scroll;
+    resize: none;
+}
+
+
+.float-container {
+    width: 800px;
+    height: 600px;
+    margin: auto;
+}
+.float-child {
+    float: left;
+    margin: auto;
+}
+
+
+.testImgPlaceHolder {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 50%;
+    /*width: 300px;*/
+    height: 400px;
+    float: left;
+}
+#testImg {
+    display: none;
+    width: 400px;
+    height: 400px;
+}
+.bufferDiv{
+    display: none;
+}
+
+/* Questions */
+.boldText {
+    font-weight: bold;
+}
+.instrText {
+    font-size: 15px;
+}
+
+.smallDimText {
+    color: #bbb;
+    font-size: 16px;
+    line-height: 25px;
+}
+.option {
+    position: relative;
+    margin: 10px 0;
+    padding: 7px;
+    width: 100%;
+    border-radius: 8px;
+    background: #555;
+    cursor: pointer;
+}
+.option:hover {
+    background: gray;
+}
+.optionRadio {
+    position: absolute;
+    margin: 0;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.optionText {
+    position: relative;
+    left: 28px;
+    width: calc(100% - 28px);
+}
+input[type="text"],
+
+#qProblems {
+    position: relative;
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* rating */
+.rating {
+    position: relative;
+    margin: 16px 0;
+    padding: 7px;
+    width: 100px;
+    border-radius: 8px;
+    background: #555;
+    cursor: pointer;
+    display:inline-block;
+}
+.rating:hover {
+    background: gray;
+}
+.ratingRadio {
+    position: absolute;
+    margin: 0;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.ratingText {
+    position: relative;
+    left: 28px;
+    width: calc(100% - 28px);
+}
+
+#img0 {
+    height: 350px;
+}
+
+#img1 {
+    height: 300px;
+    margin-right: 50px;
+}
+
+#img2 {
+    height: 300px;
+}
+
+#imgBox {
+    position: relative;
+    text-align: center;
+    margin-top: 5%; 
+    margin-bottom: 5%;
+}
+
+#btnBox {
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+
+#trialBox {
+	position: relative;
+	margin: 20 auto 0 auto; 
+    overflow-x: none;
+}
+
+#canvasDot {
+    border:1px black;
+    background: transparent;
+    
+    top: 0;
+    left: 88px;
+    
+    position: absolute;
+    z-index: 1;
+}
+
+#canvas {
+    border:1px black;
+    background: transparent;
+    
+    top: 0;
+    left: 88px;
+    
+    position: absolute;
+    z-index: 2;
+}
