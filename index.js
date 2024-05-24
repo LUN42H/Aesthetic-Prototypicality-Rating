@@ -52,7 +52,7 @@ const STIM_PATH = "Stimuli\\";
 practice = true;
 likability = false;
 prototypicality = false;
-const CATEGORY_NUM = 2; // should be 50 in real experiment
+const CATEGORY_NUM = 50; // should be 50 in real experiment
 CATEGORY_BLOCK_INDEX = 0;
 
 function shuffleArray(array) {
@@ -135,8 +135,8 @@ $(document).ready(function () {
     subj.saveVisit();
 
     instr = new instrObject(instr_options);
-    //trial_options["subj"] = subj;
     trial = new trialObject(trial_options);
+    trial.subj = subj;
     instr.start();
 
     if (subj.phone) {
