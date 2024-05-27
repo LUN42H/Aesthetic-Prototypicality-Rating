@@ -93,8 +93,7 @@ $(document).ready(function () {
     subj = new Subject(subj_options);
     subj.id = subj.getID(id_variable_name);
     subj.saveVisit();
-    //if (subj.validID) { XXX
-    if (true) {
+    if (subj.validID) { 
         load_img(0, stim_path, all_img_list);
         instr = new Instructions(instr_options);
         instr.start();
